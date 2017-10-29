@@ -37,10 +37,7 @@ function keyPressed() {
   	game.hits = 0;
   }
   if (key == 'D') { game.debug = !game.debug; }
-}
-
-function mousePressed() {
-	game.paused = !game.paused;
+	if (key === ' ') { game.paused = !game.paused; }
 }
 
 function approx(val, n) {
