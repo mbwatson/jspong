@@ -39,7 +39,7 @@ function keyPressed() {
   	game.hits = 0;
   }
 	if (key === ' ') { game.paused = !game.paused; }
-  if (key == 'D') { game.hud = !game.hud; }
+  if (key == 'H') { game.hud = !game.hud; }
 }
 
 function approx(val, n) {
