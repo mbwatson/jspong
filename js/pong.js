@@ -6,6 +6,7 @@ class Pong {
 		this.ball = new Ball(width/2, height/2);
 		this.debug = false;
 		this.paused = false;
+		this.hits = 0;
 	}
 
 	showInfo() {

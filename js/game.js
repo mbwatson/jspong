@@ -11,6 +11,7 @@ function draw() {
 		// update
 		if (game.ball.collide(game.p1.paddle) || game.ball.collide(game.p2.paddle) ) {
 			game.ball.swat();
+			game.hits += 1;
 		}
 		game.p1.paddle.update();
 		game.p2.paddle.update();

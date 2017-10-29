@@ -17,7 +17,7 @@ class Ball {
 		this.x = x;
 		this.y = y;
 		this.vel = 4;
-		this.direction = randomIn([0, 1, 2, 3, 5, 6, 7]) * PI/8 * coinFlip();
+		this.direction = randomIn([0,1,2,3,4,5,6,7,9,10,11,12,13,14,15]) * PI/16 * coinFlip();
 		this.dx = this.vel * cos(this.direction);
 		this.dy = this.vel * sin(this.direction);
 		this.d = 10	;
