@@ -13,9 +13,10 @@ class Pong {
 		textSize(12);
 		fill(color(0, 255, 255));
 		textAlign(LEFT);
-		text("PADDLE 1\nposition: (" + game.p1.paddle.x + ", " + game.p1.paddle.y + ")\ndy: " + approx(game.p1.paddle.dy), 10, 20);
-		text("PADDLE 2\nposition: (" + game.p2.paddle.x + ", " + game.p2.paddle.y + ")\ndy: " + approx(game.p2.paddle.dy), 210, 20);
-		text("BALL\nposition: (" + approx(game.ball.x) + ", " + approx(game.ball.y) + ")\ndx: " + approx(game.ball.dx) + "\ndy: " + approx(game.ball.dy), 410, 20);
+		text("Hits: " + game.hits, 10, 20);
+		text("BALL\nposition: (" + approx(game.ball.x) + ", " + approx(game.ball.y) + ")\ndx: " + approx(game.ball.dx) + "\ndy: " + approx(game.ball.dy), 110, 20);
+		text("PADDLE 1\nposition: (" + game.p1.paddle.x + ", " + game.p1.paddle.y + ")\ndy: " + approx(game.p1.paddle.dy), 310, 20);
+		text("PADDLE 2\nposition: (" + game.p2.paddle.x + ", " + game.p2.paddle.y + ")\ndy: " + approx(game.p2.paddle.dy), 510, 20);
 	}
 	
 	pauseScreen() {

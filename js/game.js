@@ -34,6 +34,7 @@ function keyPressed() {
   if (keyCode === ENTER) {
   	game.ball.kill();
   	game.ball = new Ball(width/2, height/2);
+  	game.hits = 0;
   }
   if (key == 'D') { game.debug = !game.debug; }
 }
