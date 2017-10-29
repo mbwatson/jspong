@@ -6,16 +6,20 @@ function setup() {
 }
 
 function draw() {
-	background(51);
+	background(game.background);
 	if (!game.paused) {
 		// update
 		if (game.ball.collide(game.p1.paddle) || game.ball.collide(game.p2.paddle) ) {
 			game.ball.swat();
 			game.hits += 1;
 		}
-		game.p1.paddle.update();
-		game.p2.paddle.update();
-		game.ball.update();
+		// if (game.ball.x < game.ball.minX) {
+		// 	game.p1.score += 1;
+		// }
+		// if (game.ball.x > game.ball.maxX) {
+		// 	game.p2.score += 1;
+		// }
+		game.update();
 	} else {
 		game.pauseScreen();
 	}
@@ -24,6 +28,7 @@ function draw() {
 	game.p1.paddle.draw();
 	game.p2.paddle.draw();
 	game.ball.draw();
+	game.showScores();
 }
 
 function keyPressed() {
@@ -36,6 +41,7 @@ function keyPressed() {
   if (keyCode === ENTER) {
   	game.ball.kill();
   	game.ball = new Ball(width/2, height/2);
+  	game.ballCount += 1;
   	game.hits = 0;
   }
 	if (key === ' ') { game.paused = !game.paused; }

@@ -23,27 +23,24 @@ class Ball {
 		this.d = 10	;
 		this.r = this.d/2;
 		this.dr = 0;
-		this.minY = this.d;
-		this.maxY = height - this.d;
-		this.minX = this.d;
-		this.maxX = width - this.d;
+		this.minY = this.r;
+		this.maxY = height - this.r;
+		this.minX = 0;
+		this.maxX = width;
 	}
 
 	kill() {
 		for (var property in this) delete this[property];
 	}
 
-	update() {
-		if (this.y + this.dy <= this.minY || this.y + this.dy >= this.maxY) {
-			this.dy *= -1;
-		}
-		if (this.x + this.dx <= this.minX || this.x + this.dx >= this.maxX) {
-			this.dx = 0;
-			this.dy = 0;
-		}
-		this.x += this.dx;
-		this.y += this.dy;
-		this.d += this.dr;
+	stop() {
+		this.dx = 0;
+		this.dy = 0;
+	}
+	
+	draw() {
+		fill(255);
+		ellipse(this.x, this.y, this.d, this.d);
 	}
 
 	collide(paddle) {
@@ -59,11 +56,6 @@ class Ball {
 	swat() {
 		this.dx *= -1;
 		this.dx += sign(this.dx);
-	}
-
-	draw() {
-		fill(255);
-		ellipse(this.x, this.y, this.d, this.d);
 	}
 
 }
