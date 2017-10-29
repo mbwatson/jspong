@@ -6,12 +6,18 @@ function coinFlip() {
 	return 2*floor(random(0,2) ) - 1;
 }
 
+function randomIn(set)
+{
+    var randomKey = floor(random() * set.length);
+    return set[randomKey];
+}
+
 class Ball {
 	constructor(x,y) {
 		this.x = x;
 		this.y = y;
 		this.vel = 4;
-		this.direction = (floor(random(14)) + 1) * PI/8;
+		this.direction = randomIn([0, 1, 2, 3, 5, 6, 7]) * PI/8 * coinFlip();
 		this.dx = this.vel * cos(this.direction);
 		this.dy = this.vel * sin(this.direction);
 		this.d = 10	;
