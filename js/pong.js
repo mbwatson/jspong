@@ -13,12 +13,21 @@ class Pong {
 		textSize(12);
 		fill(color(0, 255, 255));
 		textAlign(LEFT);
-		text("Hits: " + game.hits, 10, 20);
-		text("BALL\nposition: (" + approx(game.ball.x) + ", " + approx(game.ball.y) + ")\ndx: " + approx(game.ball.dx) + "\ndy: " + approx(game.ball.dy), 110, 20);
-		text("PADDLE 1\nposition: (" + game.p1.paddle.x + ", " + game.p1.paddle.y + ")\ndy: " + approx(game.p1.paddle.dy), 310, 20);
-		text("PADDLE 2\nposition: (" + game.p2.paddle.x + ", " + game.p2.paddle.y + ")\ndy: " + approx(game.p2.paddle.dy), 510, 20);
-		text("Player 1 Score: " + game.p1.score, width-110, 0.97*height);
-		text("Player 2 Score: " + game.p2.score, 10, 0.97*height);
+		let gameStats = `Hits: ${this.hits}`;
+		text(gameStats, 40, 20);
+		let p1Info = `PLAYER 1
+Score: ${this.p1.score}
+Paddle @ (${this.p1.paddle.x},${this.p1.paddle.y}) with dy = ${this.p1.paddle.dy}`
+		let p2Info = `PLAYER 2
+Score: ${this.p2.score}
+Paddle @ (${this.p2.paddle.x},${this.p2.paddle.y}) with dy = ${this.p2.paddle.dy}`
+	 	textAlign(CENTER);
+		let ballInfo = `Ball @ (${approx(this.ball.x)},${approx(this.ball.y)}) with velocity (${approx(this.ball.dx,2)},${approx(this.ball.dy,2)})`;
+		text(ballInfo, width/2, height - 10);
+	 	textAlign(RIGHT);
+		text(p1Info, width-40, height - 40);
+	 	textAlign(LEFT);
+		text(p2Info, 40, height - 40);
 	}
 	
 	pauseScreen() {
