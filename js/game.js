@@ -20,7 +20,7 @@ function draw() {
 		game.pauseScreen();
 	}
 	// draw
-	if (game.debug) { game.showInfo(); }
+	if (game.hud) { game.showInfo(); }
 	game.p1.paddle.draw();
 	game.p2.paddle.draw();
 	game.ball.draw();
@@ -39,7 +39,7 @@ function keyPressed() {
   	game.hits = 0;
   }
 	if (key === ' ') { game.paused = !game.paused; }
-  if (key == 'D') { game.debug = !game.debug; }
+  if (key == 'D') { game.hud = !game.hud; }
 }
 
 function approx(val, n) {

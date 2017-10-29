@@ -17,6 +17,8 @@ class Pong {
 		text("BALL\nposition: (" + approx(game.ball.x) + ", " + approx(game.ball.y) + ")\ndx: " + approx(game.ball.dx) + "\ndy: " + approx(game.ball.dy), 110, 20);
 		text("PADDLE 1\nposition: (" + game.p1.paddle.x + ", " + game.p1.paddle.y + ")\ndy: " + approx(game.p1.paddle.dy), 310, 20);
 		text("PADDLE 2\nposition: (" + game.p2.paddle.x + ", " + game.p2.paddle.y + ")\ndy: " + approx(game.p2.paddle.dy), 510, 20);
+		text("Player 1 Score: " + game.p1.score, width-110, 0.97*height);
+		text("Player 2 Score: " + game.p2.score, 10, 0.97*height);
 	}
 	
 	pauseScreen() {
