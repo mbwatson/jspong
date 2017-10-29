@@ -1,10 +1,15 @@
 # jspong
 Created with [p5.js](https://p5js.org/).
 
-## Controls
+# Controls
 
-`D` - show/hide debugging information
+### Player 1 Controls
+`up arrow` and `down arrow` - Move 
 
-mouseclick - pause
+### Player 2 Controls
+`A` and `Z` - Move 
 
-`Enter` - re-serve ball
+### Global Controls
+`D` - Show/hide debugging information
+`Enter` - Re-serve ball
+mouseclick - Pause
