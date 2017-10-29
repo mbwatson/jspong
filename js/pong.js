@@ -4,7 +4,7 @@ class Pong {
 		this.p1 = new Player(width - 30, height/2);
 		this.p2 = new Player(30, height/2);
 		this.ball = new Ball(width/2, height/2);
-		this.debug = false;
+		this.hud = true;
 		this.paused = false;
 		this.hits = 0;
 	}
