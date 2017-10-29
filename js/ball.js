@@ -16,7 +16,8 @@ class Ball {
 	constructor(x,y) {
 		this.x = x;
 		this.y = y;
-		this.vel = 4;
+		this.vel = 5;
+		this.maxDx = 5;
 		this.direction = randomIn([0,1,2,3,4,5,6,7,9,10,11,12,13,14,15]) * PI/16 * coinFlip();
 		this.dx = this.vel * cos(this.direction);
 		this.dy = this.vel * sin(this.direction);
@@ -37,7 +38,7 @@ class Ball {
 		this.dx = 0;
 		this.dy = 0;
 	}
-	
+
 	draw() {
 		fill(255);
 		ellipse(this.x, this.y, this.d, this.d);
@@ -55,7 +56,7 @@ class Ball {
 
 	swat() {
 		this.dx *= -1;
-		this.dx += sign(this.dx);
+		this.dx = (abs(this.dx) - this.maxDx < 0) ? this.dx + sign(this.dx) : sign(this.dx) * this.maxDx;
 	}
 
 }
