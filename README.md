@@ -10,6 +10,6 @@ Created with [p5.js](https://p5js.org/).
 `A` and `Z` - Move 
 
 ### Global Controls
-`D` - Show/hide debugging information
+`Spacebar` - Pause
 `Enter` - Re-serve ball
-mouseclick - Pause
+`D` - Show/hide debugging information
