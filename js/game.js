@@ -13,22 +13,17 @@ function draw() {
 			game.ball.swat();
 			game.hits += 1;
 		}
-		// if (game.ball.x < game.ball.minX) {
-		// 	game.p1.score += 1;
-		// }
-		// if (game.ball.x > game.ball.maxX) {
-		// 	game.p2.score += 1;
-		// }
 		game.update();
 	} else {
 		game.pauseScreen();
 	}
 	// draw
-	if (game.hud) { game.showInfo(); }
+	if (game.hud) { game.showHUD(); }
+	game.scorebar.draw(game.p1.points, game.p2.points);
 	game.p1.paddle.draw();
 	game.p2.paddle.draw();
 	game.ball.draw();
-	game.showScores();
+	// game.showScores();
 }
 
 function keyPressed() {

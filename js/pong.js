@@ -8,7 +8,8 @@ class Pong {
 		this.paused = false;
 		this.hits = 0;
 		this.ballCount = 0;
-		this.maxScore = 5;
+		this.maxScore = 5; // unimplemented
+		this.scorebar = new Scorebar(width/(2*this.maxScore), 10, 2*this.maxScore);
 	}
 
 	update() {
@@ -17,11 +18,11 @@ class Pong {
 		if (this.ball.y + this.ball.dy <= this.ball.minY || this.ball.y + this.ball.dy >= this.ball.maxY) {
 			this.ball.dy *= -1;
 		}
-		if (this.ball.x + this.ball.dx < this.ball.minX) {
+		if (this.ball.x + this.ball.dx < this.ball.minX && this.ball.dx < 0) {
 			this.ball.x = width;
 			this.p1.score();
 		}
-		if (this.ball.x + this.ball.dx >= this.ball.maxX) {
+		if (this.ball.x + this.ball.dx >= this.ball.maxX && this.ball.dx > 0) {
 			this.ball.x = 0;
 			this.p2.score();
 		}
@@ -30,7 +31,7 @@ class Pong {
 		this.ball.r += this.ball.dr;
 	}
 
-	showInfo() {
+	showHUD() {
 		textSize(12);
 		fill(color(0, 255, 255));
 		textAlign(LEFT);
@@ -38,22 +39,21 @@ class Pong {
 Hits: ${this.hits}`;
 		text(gameStats, 40, 20);
 		let p1Info = `PLAYER 1
-Score: ${this.p1.points}
 Paddle @ (${this.p1.paddle.x},${this.p1.paddle.y}) with dy = ${this.p1.paddle.dy}`
 		let p2Info = `PLAYER 2
-Score: ${this.p2.points}
 Paddle @ (${this.p2.paddle.x},${this.p2.paddle.y}) with dy = ${this.p2.paddle.dy}`
 	 	textAlign(CENTER);
 		let ballInfo = `Ball @ (${approx(this.ball.x)},${approx(this.ball.y)}) with velocity (${approx(this.ball.dx,2)},${approx(this.ball.dy,2)})`;
 		text(ballInfo, width/2, height - 10);
 	 	textAlign(RIGHT);
-		text(p1Info, width-40, height - 40);
+		text(p1Info, width-40, height - 25);
 	 	textAlign(LEFT);
-		text(p2Info, 40, height - 40);
+		text(p2Info, 40, height - 25);
 	}
 	
 	pauseScreen() {
 		fill(color(255, 0, 0, 10));
+		rectMode(CENTER)
 		rect(width/2, height/2, width, height);
 		textSize(24);
 		fill(color(0, 255, 255));
@@ -61,11 +61,4 @@ Paddle @ (${this.p2.paddle.x},${this.p2.paddle.y}) with dy = ${this.p2.paddle.dy
 		text("PAUSED", width/2, height/2);
 	}
 
-	showScores() {
-		textSize(24);
-		textAlign(RIGHT);
-		text(this.p1.points, width - 20, 30);
-		textAlign(LEFT);
-		text(this.p2.points, 20, 30);
-	}
 }
