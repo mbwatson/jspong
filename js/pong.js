@@ -13,6 +13,10 @@ class Pong {
 	}
 
 	update() {
+		if (abs(this.p1.points - this.p2.points) == this.maxScore) {
+			this.p1.points = 0;
+			this.p2.points = 0;
+		}
 		this.p1.paddle.update();
 		this.p2.paddle.update();
 		if (this.ball.y + this.ball.dy <= this.ball.minY || this.ball.y + this.ball.dy >= this.ball.maxY) {
@@ -37,7 +41,7 @@ class Pong {
 		textAlign(LEFT);
 		let gameStats = `Ball: ${this.ballCount}
 Hits: ${this.hits}`;
-		text(gameStats, 40, 20);
+		text(gameStats, 40, 30);
 		let p1Info = `PLAYER 1
 Paddle @ (${this.p1.paddle.x},${this.p1.paddle.y}) with dy = ${this.p1.paddle.dy}`
 		let p2Info = `PLAYER 2
