@@ -4,6 +4,7 @@ class Scorebar {
 		this.blockHeight = height;
 		this.blocks = num // on each side -- half total number of blocks
 		this.val = 0;
+		this.colors = [color(0,255,255), color(238,118,35), color(227,78,53), color(119,184,0), color(255,0,0)];
 	}
 
 	draw(score1, score2) {
@@ -19,12 +20,14 @@ class Scorebar {
 		fill(240, 100);
 		if (diff > 0) {
 			for (let i = 0; i < diff; i++) {
+				fill(this.colors[i]);
 				rect(width/2 + i * this.blockWidth, 0, this.blockWidth, this.blockHeight);
 			}			
 		}
 		if (diff < 0) {
-			for (let i = diff; i < 0; i++) {
-				rect(width/2 + i * this.blockWidth, 0, this.blockWidth, this.blockHeight);
+			for (let i = 1; i <= -diff; i++) {
+				fill(this.colors[i-1]);
+				rect(width/2 - i * this.blockWidth, 0, this.blockWidth, this.blockHeight);
 			}			
 		}
 		noStroke();
