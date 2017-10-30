@@ -1,6 +1,10 @@
 # jspong
 Created with [p5.js](https://p5js.org/).
 
+Played on a cylinder.
+
+Pass the ball by your opponent five times to win.
+
 # Controls
 
 ### Player 1 Controls
@@ -12,4 +16,4 @@ Created with [p5.js](https://p5js.org/).
 ### Global Controls
 `Spacebar` - Pause
 `Enter` - Re-serve ball
-`D` - Show/hide debugging information
+`H` - Show/hide HUD
