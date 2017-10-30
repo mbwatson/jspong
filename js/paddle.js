@@ -38,7 +38,7 @@ class Paddle {
 
   movingUp() { return this.dy < 0; }
   movingDown() { return this.dy > 0; }
-	minY() { return (this.height/2); }
+	minY() { return (10+this.height/2); }
 	maxY() { return (height - this.height/2); }
 	top() { return this.y - this.width/2 };
 	bottom() { return this.y + this.width/2 };

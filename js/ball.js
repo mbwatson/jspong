@@ -24,7 +24,7 @@ class Ball {
 		this.d = 10	;
 		this.r = this.d/2;
 		this.dr = 0;
-		this.minY = this.r;
+		this.minY = 10+this.r;
 		this.maxY = height - this.r;
 		this.minX = 0;
 		this.maxX = width;
