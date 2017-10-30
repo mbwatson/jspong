@@ -7,13 +7,13 @@ class Pong {
 		this.hud = true;
 		this.paused = false;
 		this.hits = 0;
-		this.ballCount = 0;
 		this.maxScore = 5; // unimplemented
 		this.scorebar = new Scorebar(width/(2*this.maxScore), 10, 2*this.maxScore);
 	}
 
 	update() {
 		if (abs(this.p1.points - this.p2.points) == this.maxScore) {
+			this.ball.stop();
 			this.p1.points = 0;
 			this.p2.points = 0;
 		}
@@ -39,9 +39,6 @@ class Pong {
 		textSize(12);
 		fill(color(0, 255, 255));
 		textAlign(LEFT);
-		let gameStats = `Ball: ${this.ballCount}
-Hits: ${this.hits}`;
-		text(gameStats, 40, 30);
 		let p1Info = `PLAYER 1
 Paddle @ (${this.p1.paddle.x},${this.p1.paddle.y}) with dy = ${this.p1.paddle.dy}`
 		let p2Info = `PLAYER 2
